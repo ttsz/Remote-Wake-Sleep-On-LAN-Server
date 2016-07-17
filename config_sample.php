@@ -39,6 +39,7 @@
 	// Command to be issued by the windows sleeponlan utility
 	// options are suspend, hibernate, logoff, poweroff, forcepoweroff, lock, reboot
 	// You can create a windows scheduled task that starts sleeponlan.exe on boot with following startup parameters /auto /port=7760
+	//You are use linux only use reboot and shutdown command 
 	$COMPUTER_SLEEP_CMD = "suspend";
 
 	// This is the location of the bootstrap style folder relative to your index and config file. Default = "" (Same folder as this file)
