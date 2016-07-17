@@ -2,8 +2,8 @@ import time
 import BaseHTTPServer
 
 
-HOST_NAME = 'localhost'  # !!!REMEMBER TO CHANGE THIS!!!
-PORT_NUMBER = 9000  # Maybe set this to 9000.
+HOST_NAME = '0.0.0.0'  # !!!REMEMBER TO CHANGE THIS!!!
+PORT_NUMBER = 7760  # Maybe set this to 9000.
 
 
 class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
@@ -22,9 +22,9 @@ class MyHandler(BaseHTTPServer.BaseHTTPRequestHandler):
         # then s.path equals "/foo/bar/".
         s.wfile.write("<p>You accessed path: %s</p>" % s.path)
         if ( str(s.path) == '/reboot' ):
-            s.wfile.write("<p>Command is: reboot</p>")
+            call(["sudo", "reboot"])
         elif ( str(s.path) == '/shutdown' ):
-            s.wfile.write("<p>Command is: init 0</p>")
+            call(["sudo", "init", "0"])
         else:
             s.wfile.write("<p>%s Invalid or not supported command</p>" % s.path)
 
